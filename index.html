@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcell Balogh — Researcher</title>
+    <meta name="description" content="Personal academic page of Marcell Balogh — PhD Student at Budapest University of Technology and Economics, Department of Telecommunications and Artificial Intelligence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1B2A4A;
+            --navy-light: #2C3E6B;
+            --white: #FFFFFF;
+            --gray-bg: #F5F7FA;
+            --gray-text: #6B7280;
+            --charcoal: #333333;
+            --accent: #3B5998;
+            --border: #E5E7EB;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--charcoal);
+            line-height: 1.7;
+            background: var(--white);
+        }
+
+        a {
+            color: var(--navy-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 0.8rem 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--navy);
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* ── Hero / Header ── */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: var(--white);
+        }
+
+        .hero img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.05rem;
+            color: var(--gray-text);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .hero .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--navy);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .hero .links a:hover {
+            background: var(--navy);
+            color: var(--white);
+            border-color: var(--navy);
+        }
+
+        .hero .links svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* ── Sections ── */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--navy);
+            display: inline-block;
+        }
+
+        /* ── About ── */
+        .about {
+            background: var(--white);
+        }
+
+        .about p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--charcoal);
+        }
+
+        .bio-placeholder {
+            background: var(--gray-bg);
+            border-left: 3px solid var(--navy);
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 6px 6px 0;
+            color: var(--gray-text);
+            font-style: italic;
+        }
+
+        /* ── Publications ── */
+        .publications {
+            background: var(--gray-bg);
+        }
+
+        .year-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .year-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .year-label {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .year-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .pub-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 0.8rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .pub-item:hover {
+            box-shadow: 0 2px 12px rgba(27, 42, 74, 0.08);
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.98rem;
+            margin-bottom: 0.35rem;
+            line-height: 1.5;
+        }
+
+        .pub-title a {
+            color: var(--navy);
+        }
+
+        .pub-title a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .pub-authors {
+            font-size: 0.88rem;
+            color: var(--gray-text);
+            margin-bottom: 0.3rem;
+        }
+
+        .pub-authors strong {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        .pub-venue {
+            font-size: 0.85rem;
+            color: var(--gray-text);
+            font-style: italic;
+        }
+
+        .pub-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .pub-badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.75rem;
+        }
+
+        .badge-journal {
+            background: #EEF2FF;
+            color: var(--navy-light);
+        }
+
+        .badge-conference {
+            background: #F0FDF4;
+            color: #166534;
+        }
+
+        .badge-citations {
+            color: var(--gray-text);
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer a:hover {
+            color: var(--white);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 6rem 1.2rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero img {
+                width: 140px;
+                height: 140px;
+            }
+
+            section {
+                padding: 3rem 1.2rem;
+            }
+
+            h2 {
+                font-size: 1.35rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 0.78rem;
+            }
+
+            .pub-item {
+                padding: 1rem 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+    <img src="Marcell_Balogh_120x150.jpg" alt="Marcell Balogh">
+    <h1>Marcell Balogh</h1>
+    <p class="subtitle">PhD Student · Dept. of Telecommunications and Artificial Intelligence · BME</p>
+    <div class="links">
+        <a href="https://orcid.org/0000-0002-6581-8028" target="_blank" rel="noopener">
+            <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zM86.3 186.2H70.1V85.6h16.2v100.6zm-8.1-115c-5.8 0-10.5-4.7-10.5-10.5s4.7-10.5 10.5-10.5 10.5 4.7 10.5 10.5-4.7 10.5-10.5 10.5zm109.5 115h-16.2v-47.3c0-14.5-5.2-24.4-18.2-24.4-9.9 0-15.8 6.7-18.4 13.1-.9 2.3-1.2 5.5-1.2 8.7v49.9h-16.2s.2-81 0-89.4h16.2v12.7c2.2-3.3 6-8.1 14.6-12.3 10.7-5.6 18.6-4 22.8-2.3 12.2 4.8 16.6 16.8 16.6 35.5v55.8z"/></svg>
+            ORCID
+        </a>
+        <a href="https://github.com/Martzi" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+        </a>
+        <a href="https://m2.mtmt.hu/gui2/?type=authors&mode=browse&sel=10081350&view=simpleList" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            MTMT
+        </a>
+    </div>
+</header>
+
+<!-- About -->
+<section class="about" id="about">
+    <div class="container">
+        <h2>About</h2>
+        <div class="bio-placeholder">
+            <p>Write your bio here. Describe your research interests, background, and what drives your work. Replace this entire block with your own text — for example:</p>
+            <br>
+            <p>"I am a PhD student at the Department of Telecommunications and Artificial Intelligence, Budapest University of Technology and Economics. My research focuses on cloud robotics, Industrial IoT, digital twins, and network resource management for industrial systems…"</p>
+        </div>
+    </div>
+</section>
+
+<!-- Publications -->
+<section class="publications" id="publications">
+    <div class="container">
+        <h2>Publications</h2>
+
+        <!-- 2025 -->
+        <div class="year-group">
+            <div class="year-label">2025</div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.23919/SpliTech65624.2025.11091753" target="_blank" rel="noopener">Enhancing Network Observability and QoS Provisioning for Industrial Scenarios</a>
+                </div>
+                <div class="pub-authors">G. Szabo, B. Bunda, J. Varga, <strong>M. Balogh</strong></div>
+                <div class="pub-venue">2025 10th International Conference on Smart and Sustainable Technologies (SpliTech), pp. 1–6</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-conference">Conference</span>
+                    <span>IEEE</span>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.1109/CSCN67557.2025.11230769" target="_blank" rel="noopener">Enhanced Resource Management of IIoT Systems</a>
+                </div>
+                <div class="pub-authors"><strong>M. Balogh</strong>, G. Szabo, A. Vidacs</div>
+                <div class="pub-venue">2025 IEEE Conference on Standards for Communications and Networking (CSCN)</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-conference">Conference</span>
+                    <span>IEEE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="year-group">
+            <div class="year-label">2024</div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.23919/SpliTech61897.2024.10612562" target="_blank" rel="noopener">Impact of Network Resource Management on the Quality of Pick and Place Processes</a>
+                </div>
+                <div class="pub-authors">G. Szabo, <strong>M. Balogh</strong>, A. Vidacs</div>
+                <div class="pub-venue">2024 9th International Conference on Smart and Sustainable Technologies (SpliTech), 5 pages</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-conference">Conference</span>
+                    <span>IEEE</span>
+                    <span class="badge-citations">Cited by 1</span>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.1109/CANDO-EPE65072.2024.10772748" target="_blank" rel="noopener">On the Connectivity Model Management of Industrial IoT Devices</a>
+                </div>
+                <div class="pub-authors">G. Szabo, <strong>M. Balogh</strong>, A. Szanyi, D. Bata, A. Vidacs, I. Komlosi, T. Pepo</div>
+                <div class="pub-venue">2024 IEEE 7th International Conference and Workshop Obuda on Electrical and Power Engineering (CANDO-EPE), pp. 213–218</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-conference">Conference</span>
+                    <span>IEEE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="year-group">
+            <div class="year-label">2023</div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.1007/978-3-031-16072-1_14" target="_blank" rel="noopener">Measuring Robot System Agility: Ontology, System Theoretical Formulation and Benchmarking</a>
+                </div>
+                <div class="pub-authors">A. Vidacs, G. Szabo, <strong>M. Balogh</strong></div>
+                <div class="pub-venue">Lecture Notes in Networks and Systems, vol. 542, pp. 173–191</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-journal">Journal</span>
+                    <span>Springer</span>
+                    <span class="badge-citations">Cited by 1</span>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.1109/EuCNC/6GSummit58263.2023.10188377" target="_blank" rel="noopener">Validation of Cloud-Controlled Autonomous Mobile Robots in a Real Semiconductor Plant</a>
+                </div>
+                <div class="pub-authors">N. Reider, G. Nemeth, S. Racz, <strong>M. Balogh</strong>, A. Vidacs, G. Feher, D. Harutyunyan, P. Buseck, A. Hohner</div>
+                <div class="pub-venue">2023 Joint European Conference on Networks and Communications &amp; 6G Summit (EuCNC/6G Summit), pp. 681–686</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-conference">Conference</span>
+                    <span>IEEE</span>
+                    <span class="badge-citations">Cited by 2</span>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.1109/ISIE51358.2023.10227970" target="_blank" rel="noopener">Extending Edge-Based Mobile Robot Navigation with Social Awareness</a>
+                </div>
+                <div class="pub-authors">G. Feher, D. Rozsa, <strong>M. Balogh</strong>, N. Reider</div>
+                <div class="pub-venue">2023 IEEE 32nd International Symposium on Industrial Electronics (ISIE), pp. 1–4</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-conference">Conference</span>
+                    <span>IEEE</span>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.1109/ISIE51358.2023.10228099" target="_blank" rel="noopener">Compensating Delays for Precise and Real-time ROS Cloud Robotics Localization</a>
+                </div>
+                <div class="pub-authors">G. Feher, D. Agocs, D. Rozsa, <strong>M. Balogh</strong>, N. Reider</div>
+                <div class="pub-venue">2023 IEEE 32nd International Symposium on Industrial Electronics (ISIE), pp. 1–4</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-conference">Conference</span>
+                    <span>IEEE</span>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.1109/NOMS56928.2023.10154424" target="_blank" rel="noopener">Digital Twins in Industry 5.0: Challenges in Modeling and Communication</a>
+                </div>
+                <div class="pub-authors"><strong>M. Balogh</strong>, A. Foldvari, P. Varga</div>
+                <div class="pub-venue">NOMS 2023 — 2023 IEEE/IFIP Network Operations and Management Symposium, pp. 1–6</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-conference">Conference</span>
+                    <span>IEEE</span>
+                    <span class="badge-citations">Cited by 21</span>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.1109/CSCN60443.2023.10453178" target="_blank" rel="noopener">Towards a Connected Robotic Ecosystem</a>
+                </div>
+                <div class="pub-authors"><strong>M. Balogh</strong>, B. Kovacs, A. Vidacs, G. Szabo</div>
+                <div class="pub-venue">2023 IEEE Conference on Standards for Communications and Networking (CSCN), pp. 142–147</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-conference">Conference</span>
+                    <span>IEEE</span>
+                    <span class="badge-citations">Cited by 2</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="year-group">
+            <div class="year-label">2022</div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.36244/ICJ.2022.1.5" target="_blank" rel="noopener">Optimizing Camera Stream Transport in Cloud-Based Industrial Robotic Systems</a>
+                </div>
+                <div class="pub-authors"><strong>M. Balogh</strong>, A. Vidacs</div>
+                <div class="pub-venue">Infocommunications Journal, vol. 14, no. 1, pp. 36–42</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-journal">Journal</span>
+                    <span class="badge-citations">Cited by 2</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2021 -->
+        <div class="year-group">
+            <div class="year-label">2021</div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://doi.org/10.1109/PIMRC50174.2021.9569730" target="_blank" rel="noopener">Cloud-Controlled Autonomous Mobile Robot Platform</a>
+                </div>
+                <div class="pub-authors"><strong>M. Balogh</strong>, A. Vidacs, G. Feher, M. Maliosz, M. A. Horvath, N. Reider, S. Racz</div>
+                <div class="pub-venue">2021 IEEE 32nd Annual International Symposium on Personal, Indoor and Mobile Radio Communications (PIMRC), pp. 1–6</div>
+                <div class="pub-meta">
+                    <span class="pub-badge badge-conference">Conference</span>
+                    <span>IEEE</span>
+                    <span class="badge-citations">Cited by 20</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Marcell Balogh. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
