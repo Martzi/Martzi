@@ -1,0 +1,14 @@
+title: Marcell Balogh
+description: Personal academic page of Marcell Balogh
+url: "https://martzi.github.io"
+baseurl: ""
+
+# Build settings
+theme: null
+plugins: []
+
+# Exclude files from build
+exclude:
+  - README.md
+  - LICENSE
+  - .claude
