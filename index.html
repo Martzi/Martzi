@@ -194,9 +194,44 @@
             font-style: italic;
         }
 
+        /* ── News ── */
+        .news {
+            background: var(--gray-bg);
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            flex-shrink: 0;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--navy);
+            min-width: 6.5rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .news-text {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
         /* ── Publications ── */
         .publications {
-            background: var(--gray-bg);
+            background: var(--white);
         }
 
         .year-group {
@@ -435,6 +470,7 @@
     </div>
     <nav class="sidebar-nav">
         <a href="#about">About</a>
+        <a href="#news">News</a>
         <a href="#publications">Publications</a>
     </nav>
 </aside>
@@ -442,6 +478,7 @@
 <!-- Mobile navigation (sticky, visible only on small screens) -->
 <nav class="mobile-nav">
     <a href="#about">About</a>
+    <a href="#news">News</a>
     <a href="#publications">Publications</a>
 </nav>
 
@@ -457,6 +494,27 @@
                 <br>
                 <p>"I am a PhD student at the Department of Telecommunications and Artificial Intelligence, Budapest University of Technology and Economics. My research focuses on cloud robotics, Industrial IoT, digital twins, and network resource management for industrial systems…"</p>
             </div>
+        </div>
+    </section>
+
+    <!-- News -->
+    <section class="news" id="news">
+        <div class="container">
+            <h2>News</h2>
+            <ul class="news-list">
+                <li class="news-item">
+                    <span class="news-date">2025.01.01</span>
+                    <span class="news-text">Example entry — replace with your own milestones, awards, talks, etc.</span>
+                </li>
+                <li class="news-item">
+                    <span class="news-date">2022.09.01</span>
+                    <span class="news-text">Started PhD studies at BME, Department of Telecommunications and Artificial Intelligence</span>
+                </li>
+                <li class="news-item">
+                    <span class="news-date">2022.01.31</span>
+                    <span class="news-text">Finished Electrical Engineering MSc at BME</span>
+                </li>
+            </ul>
         </div>
     </section>
 
