@@ -206,9 +206,12 @@ def build_html(publications):
 
     html_parts = []
 
+    # Base indentation: 12 spaces (inside .main > section > .container)
+    I = "            "  # 12 spaces
+
     for year in sorted(by_year.keys(), reverse=True):
-        html_parts.append(f'        <div class="year-group">')
-        html_parts.append(f'            <div class="year-label">{year}</div>')
+        html_parts.append(f'{I}<div class="year-group">')
+        html_parts.append(f'{I}    <div class="year-label">{year}</div>')
         html_parts.append("")
 
         for pub in by_year[year]:
@@ -230,15 +233,15 @@ def build_html(publications):
             else:
                 title_html = title
 
-            html_parts.append(f'            <div class="pub-item">')
-            html_parts.append(f'                <div class="pub-title">')
-            html_parts.append(f"                    {title_html}")
-            html_parts.append(f"                </div>")
+            html_parts.append(f'{I}    <div class="pub-item">')
+            html_parts.append(f'{I}        <div class="pub-title">')
+            html_parts.append(f"{I}            {title_html}")
+            html_parts.append(f"{I}        </div>")
             html_parts.append(
-                f'                <div class="pub-authors">{authors}</div>'
+                f'{I}        <div class="pub-authors">{authors}</div>'
             )
             html_parts.append(
-                f'                <div class="pub-venue">{venue}</div>'
+                f'{I}        <div class="pub-venue">{venue}</div>'
             )
 
             # Meta line
@@ -252,14 +255,14 @@ def build_html(publications):
                     f'<span class="badge-citations">Cited by {citing_total}</span>'
                 )
 
-            html_parts.append(f'                <div class="pub-meta">')
+            html_parts.append(f'{I}        <div class="pub-meta">')
             for mp in meta_parts:
-                html_parts.append(f"                    {mp}")
-            html_parts.append(f"                </div>")
-            html_parts.append(f"            </div>")
+                html_parts.append(f"{I}            {mp}")
+            html_parts.append(f"{I}        </div>")
+            html_parts.append(f"{I}    </div>")
             html_parts.append("")
 
-        html_parts.append(f"        </div>")
+        html_parts.append(f"{I}</div>")
         html_parts.append("")
 
     return "\n".join(html_parts)
